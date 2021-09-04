@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    
+    template="/WEB-INF/templates/defaultTerapista.xhtml">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="resources/css/styles.css" rel="stylesheet" type="text/css" />
+
+<ui:define name="content">
+<h:head>
+	<f:metadata>
+        <f:viewParam id="cedula" name="cedula" value="#{usuarioBean.cedula}"/>
+        <f:viewAction action="#{usuarioBean.loadData()}" />
+ 	</f:metadata>
+ 	</h:head>
+        <h:form id="reg">
+        <center>
+            <h2></h2>
+            <br/>
+             <h:panelGrid columns="5">
+         <h:commandButton action="list-ninios" value="Niños" />
+         <h:inputHidden value="HOLA" />
+         <h:commandButton action="#list-grupos" value="Grupos" />
+         <h:inputHidden value="HOLA" />
+         </h:panelGrid>
+            <br/>
+            <br/>
+            <br/>
+            <h:panelGrid >
+            <h:dataTable var="_cuenta" value="#{cuentaAhorroBean.newCuenta}" styleClass="tabla">
+            <h:column>
+            <f:facet name="header">Cuenta: </f:facet>
+               #{_cuenta.numeroCuenta}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Propietario</f:facet>
+                 #{_cuenta.usuario.cedula}
+                #{_cuenta.usuario.nombres}
+                #{_cuenta.usuario.apellidos}   
+            </h:column>
+            <h:column>
+                <f:facet name="header">Ultimo Movimiento Bancario</f:facet>
+                <h:outputText value="#{cuentaAhorroBean.fechaUltiMovimiento}" />
+            </h:column>
+             <h:column>
+                <f:facet name="header">Saldo</f:facet>
+                  #{_cuenta.saldo} 
+            </h:column>
+        </h:dataTable>
+         </h:panelGrid>
+        <br/>
+        <br/>
+        <br/>
+        
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+    	</center>
+    	</h:form>
+</ui:define>
+
+</ui:composition>

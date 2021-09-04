@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    
+    template="/WEB-INF/templates/default.xhtml">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+    <ui:define name="content">
+        <div>
+		<br/>
+        </div>
+
+        <h:form id="reg">
+        <center>
+            <h2>LOGIN</h2>
+            <p> </p>
+            
+            <h:panelGrid  columns="3" columnClasses="titleCell">
+                <h:outputLabel for="name" value="Usuario: " />
+                <h:inputText id="name" value="#{usuarioBean.newUsuario.username}" />
+                <h:message for="name" errorClass="invalid" />
+
+                <h:outputLabel for="email" value="Contraseña:  " />
+                <h:inputSecret id="email" value="#{usuarioBean.newUsuario.password}" />
+             </h:panelGrid>
+<br/>
+            <p>
+                <h:panelGrid columns="1">
+                    <h:commandButton 
+                        action="#{usuarioBean.iniciarSesion()}"
+                        value="INGRESAR" />
+                     <h:outputLabel value="  " />
+                </h:panelGrid>
+            </p>
+            </center>
+        </h:form>
+   		<br/>
+   		<br/>
+   		<br/>
+   		<br/>
+   		<br/>
+   		<br/>
+   		<br/>
+   		<br/>
+   		<br/>
+   		<br/>
+   		
+            </ui:define>
+</ui:composition>

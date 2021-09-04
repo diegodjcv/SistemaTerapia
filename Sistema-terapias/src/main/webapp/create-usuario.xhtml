@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      template="/WEB-INF/templates/default.xhtml"
+      >
+
+	<ui:composition template="/WEB-INF/templates/default.xhtml">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<ui:define name="content">
+        <center><h2>Ingresar nuevo Niño</h2></center>
+ 	
+<center>
+
+	<h:form>
+		<h:panelGrid columns =  "2">
+			<h:outputLabel value="Cédula: " />
+			<h:inputText value="#{usuarioBean.newUsuario.cedula}" id = "cedula" disabled="#{usuarioBean.inactivo}"/> <br />
+			<h:message for="cedula"/>
+			<h:outputLabel value="Nombre:" />
+			<h:inputText value="#{usuarioBean.newUsuario.nombres}" id = "nombre" disabled="#{usuarioBean.inactivo}" /> <br />
+			<h:message for="nombre"/>
+			<h:outputLabel value="Apellido:" />
+			<h:inputText value="#{usuarioBean.newUsuario.apellidos}" id = "apellido" disabled="#{usuarioBean.inactivo}"/> <br />
+			<h:message for="apellido"/>
+			<h:outputLabel value="Fecha Nacimiento:" />
+			<h:inputText value="#{usuarioBean.fechaNac}" id = "fechaN" disabled="#{usuarioBean.inactivo}"/> <br />
+			<h:message for="fechaN"/>
+			<h:outputLabel value="Email:" />
+			<h:inputText value="#{usuarioBean.newUsuario.email}" id = "email" disabled="#{usuarioBean.inactivo}"/> <br />
+			<h:message for="email"/>
+			
+			</h:panelGrid>
+				
+				<h:commandButton action="#{usuarioBean.generarUs()}" value="Generar Username/Password" disabled="#{usuarioBean.inactivo}">
+					<f:ajax render="@form" execute="@form"/>
+				</h:commandButton>
+				
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Username:" />
+				<h:outputText value="#{usuarioBean.newUsuario.username}" id = "username" /> <br />
+				<h:message for="username"/>
+				<h:outputLabel value="Password:" />
+				<h:outputText value="#{usuarioBean.newUsuario.password}" id = "password" /> <br />
+				<h:message for="password"/>
+		    </h:panelGrid>
+		<h:panelGrid columns="2">
+			<h:commandButton action="#{usuarioBean.guardarNinio()}" value="GUARDAR" disabled="#{usuarioBean.activo}"/>
+			<h:commandButton action="list-ninios?faces-redirect=true" value="CANCELAR" />
+		</h:panelGrid>
+    	
+	</h:form>
+	</center>
+        
+           
+            </ui:define>
+</ui:composition>
+</html>

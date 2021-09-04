@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    
+    template="/WEB-INF/templates/default.xhtml">
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="resources/css/styles.css" rel="stylesheet" type="text/css" />
+
+
+    <ui:define name="content">
+        <div>
+		<br/>
+        </div>
+
+        <h:form id="reg">
+        <center>
+            <h2>Usuario y/o contraseña incorrectos.</h2>
+            <p> </p>
+            <br/>
+            <h:commandButton action="login?faces-redirect=true" value="Regresar" />
+          </center>
+          </h:form>
+          </ui:define>
+          </ui:composition>

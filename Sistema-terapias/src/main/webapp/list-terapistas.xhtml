@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    
+    template="/WEB-INF/templates/defaultA.xhtml">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="resources/css/styles.css" rel="stylesheet" type="text/css" />
+
+
+    <ui:define name="content">
+        <h1>Lista de Terapistas</h1>
+	<center>
+	<h:form>
+	<h:dataTable var="_usuario" value="#{usuarioBean.terapistas}"
+            
+            styleClass="tabla">
+            <h:column>
+            <f:facet name="header">Cédula</f:facet>
+               #{_usuario.cedula}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                #{_usuario.nombres}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Apellido</f:facet>
+                #{_usuario.apellidos}
+            </h:column>
+             <h:column>
+                <f:facet name="header">Email</f:facet>
+                #{_usuario.email}
+            </h:column>
+             <h:column>
+                <f:facet name="header">Username</f:facet>
+                #{_usuario.username}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Acciones</f:facet>
+                <h:commandButton action="#{usuarioBean.eliminar(_usuario.cedula)}"
+                	 value="Eliminar" />
+            </h:column>
+        </h:dataTable>
+        <h:panelGrid>
+        <br/>
+			<h:commandButton action="create-terapista?faces-redirect=true" value="NUEVO" />
+		<br/>
+	</h:panelGrid>
+</h:form>
+	
+	</center>
+   </ui:define>
+</ui:composition>
