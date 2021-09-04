@@ -18,7 +18,7 @@ public class GestionCorreo {
 
 	Properties p;
 	String correo="diegodjcv@gmail.com";
-	String password="kuenkitados";
+	String password="kuenkitados"; 
 	
 	
 	 public GestionCorreo() {
